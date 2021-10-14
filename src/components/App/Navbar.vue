@@ -1,6 +1,6 @@
 <template>
-    <v-app-bar>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-app-bar app color="primary" dark>
+        <v-app-bar-nav-icon @click="$emit('toggle-drawer')"></v-app-bar-nav-icon>
 
         <v-spacer></v-spacer>
         <SignInDialog />
@@ -10,7 +10,7 @@
 
 <script>
 import SignInDialog from "./components/SignInDialog.vue"
-import SignInDialog from "./components/SignInDialog.vue"
+import SignInDialog from "./components/SignOutDialog.vue"
 export default {
     components: SignInDialog, SignOutDialog
 }

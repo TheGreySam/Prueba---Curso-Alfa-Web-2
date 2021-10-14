@@ -1,15 +1,24 @@
 <template>
-  <h1>Home</h1>
+  <div>
+    <h1>Lista de Cursos</h1>
+    <v-layout row>
+      <v-flex
+      shrink
+      v-for="grade in $store.state.grades.data" :key="grade.id">
+        {{ grade }}
+
+      </v-flex>
+    </v-layout>
+  </div>
 </template>
 
 <script>
-import HelloWorld from "../components/HelloWorld";
 
 export default {
   name: "Home",
 
-  components: {
-    HelloWorld,
-  },
+  mounted(){
+    this.$store.dispatch("grades/getAllGrades")
+  }
 };
 </script>

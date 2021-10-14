@@ -45,7 +45,7 @@ export default {
                     Firebase.auth().currentUser);
                 } catch (e) {
                     console.error(
-                        "me fue mal con el login, parece que el"
+                        "usuario no encontrado"
                     );
                 }
             };
