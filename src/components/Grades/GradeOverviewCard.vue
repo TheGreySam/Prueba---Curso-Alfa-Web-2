@@ -1,27 +1,44 @@
 <template>
-  <v-app >
-    <v-container class="mt-5"></v-container>
-    <v-container class="mt-5 text-center">
-      <h1>LISTA DE CURSOS</h1>
-    </v-container>
-    <v-container fluid class="mt-5">
-      <v-row>
-        <v-col v-for="curso in cursos" :key="curso.id" cols="12" sm="3" md="4">
-          <v-card class="mx-auto" max-width="344">
-            <v-img :src="curso.imagen" height="200px"></v-img>
+  <v-card>
+    <v-image :src="value.imagen" contain></v-image>
+    <v-card-text>
+      <v-card-title>{{value.nombre}}</v-card-title>
+      <v-timeline>
+        <v-timeline-item color="purple">
+          Costo: {{value.costo}}
+          <br>
+          Duracion: {{value.duracion}}
+        </v-timeline-item>
+        <v-timeline-item color="purple">
+          Cupos: {{value.cupos}}
+          <br>
+          Completado: {{value.estado ? "si" : "no"}}
+        </v-timeline-item>
+        <v-timeline-item color="purple">
+          Fecha de registro
+          <br>
+          {{value.fecha_registro}}
 
-            <v-card-title class="text-center">{{ curso.nombre }}</v-card-title>
+        </v-timeline-item>
+        <v-timeline-item color="purple">
+          descripcion
+          <br>
+          {{value.descripcion}}
+        </v-timeline-item>
+      </v-timeline>
+      <v-card-subtitle>{{value.descripcion}}</v-card-subtitle>
+      <v-card-text>Costo: {{value.costo}}</v-card-text>
+      <v-card-text>Duracion: {{value.duracion}}</v-card-text>
+      <v-card-text>Cupos: {{value.cupos}}</v-card-text>
 
-            <v-card-subtitle>{{ curso.descripcion }}</v-card-subtitle>
-            <v-card-text>Costo: {{ curso.costo }} </v-card-text>
-            <v-card-text>Duracion: {{ curso.duracion }}</v-card-text>
-            <v-card-text>Cupos: {{ curso.cupos }}</v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-app>
 
-  <!-- <v-container>
-      <pre>{{ cursos }}</pre>
-    </v-container> -->
+    </v-card-text>
+  </v-card>
+</template>
+
+<script>
+export default {
+  props: ["value"],
+};
+
+</script>

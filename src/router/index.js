@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Grade from "./components/Grades/GradesTable.vue"
 
 Vue.use(VueRouter);
 
@@ -19,6 +20,16 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/grades",
+    name: "Grade",
+    component: Grade,
+    children: [
+      {path: "/:id",
+      name: "GradeDetails",
+      component: () => import("../views/GradeEdit.vue")
+    ]
+  }
 ];
 
 const router = new VueRouter({
