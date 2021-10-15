@@ -1,24 +1,30 @@
 <template>
   <div>
     <h1>Lista de Cursos</h1>
-    <v-layout row>
-      <v-flex
-      shrink
-      v-for="grade in $store.state.grades.data" :key="grade.id">
-        {{ grade }}
-
-      </v-flex>
-    </v-layout>
+    <v-row>
+      <v-col
+        v-for="grade in $store.state.grades.data"
+        :key="grade.id"
+        cols="12"
+        md="6"
+      >
+        <GradeOverviewCard :value="grade" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
-
+import Store from "../store";
 export default {
   name: "Home",
-
-  mounted(){
-    this.$store.dispatch("grades/getAllGrades")
-  }
+  components: {
+    GradeOverviewCard: () =>
+      import("../components/Grades/GradeOverviewCard.vue"),
+  },
+  beforeRouteEnter(to, from, next) {
+    Store.dispatch("grades/getAllGrades");
+    next();
+  },
 };
 </script>

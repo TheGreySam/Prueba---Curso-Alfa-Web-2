@@ -3,13 +3,15 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import { moduloSesion } from "./modules/sesion";
+import { sessionModule } from "./modules/session";
+import { gradesModule } from "./modules/grades";
 
 export default new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
   modules: {
-    moduloSesion,
+    session: sessionModule,
+    grades: gradesModule,
   },
 });

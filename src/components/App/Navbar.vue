@@ -1,17 +1,59 @@
 <template>
-    <v-app-bar app color="primary" dark>
-        <v-app-bar-nav-icon @click="$emit('toggle-drawer')"></v-app-bar-nav-icon>
+  <v-app-bar app color="white" flat>
+    <v-container class="fill-height py-0">
+      <v-avatar size="48" class="mr-10">
+        <v-img
+          src="https://logodownload.org/wp-content/uploads/2020/04/google-classroom-logo-2.png"
+        ></v-img
+      ></v-avatar>
 
-        <v-spacer></v-spacer>
-        <SignInDialog />
-        <SignOutDialog />
-    </v-app-bar>
+      <transition-group name="fade" tag="div">
+        <template v-if="$store.state.session.user">
+          <v-btn
+            v-for="(link, $index) in links"
+            :key="$index"
+            text
+            :to="link.to"
+          >
+            <v-icon left>{{ link.icon }}</v-icon>
+            {{ link.text }}
+          </v-btn>
+        </template>
+      </transition-group>
+
+      <v-spacer></v-spacer>
+
+      <transition mode="out-in" name="fade">
+        <template v-if="$store.state.session.user">
+          <SignOutDialog />
+        </template>
+        <template v-else>
+          <SignInDialog />
+        </template>
+      </transition>
+    </v-container>
+  </v-app-bar>
 </template>
 
 <script>
-import SignInDialog from "./components/SignInDialog.vue"
-import SignInDialog from "./components/SignOutDialog.vue"
 export default {
-    components: SignInDialog, SignOutDialog
-}
+  components: {
+    SignInDialog: () => import("../Sign/SignInDialog.vue"),
+    SignOutDialog: () => import("../Sign/SignOutDialog.vue"),
+  },
+  data: () => ({
+    links: [
+      {
+        text: "Inicio",
+        icon: "mdi-home",
+        to: "/home",
+      },
+      {
+        text: "Cursos",
+        icon: "mdi-apps",
+        to: "/cursos",
+      },
+    ],
+  }),
+};
 </script>
