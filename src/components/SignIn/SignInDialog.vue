@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import delay from "delay";
+//import delay from "delay";
 
 export default {
   data: () => ({
@@ -68,8 +68,7 @@ export default {
         } catch (e) {
           this.loading = false;
           this.color = "error";
-          await delay(2000);
-          this.color = "success";
+          
         }
       }
     },

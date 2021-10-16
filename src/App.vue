@@ -1,41 +1,49 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <Navbar @toggle-drawer="drawer = !drawer"/>
-      <Sidebar v-model="drawer"/>
-      
-
-      
-   
-
-    </v-app-bar>
-
-    <v-main>
-      <v-container>
-        <router-view />
-      </v-container>
-      <pre>{{cursos}}</pre>
-
-      
-    </v-main>
-  </v-app>
+    <v-app>
+      <Navbar />
+      <v-parallax
+      height="100%"
+    dark
+    src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    contain
+  >
+  <transition mode="out-in" name="fade">
+                <router-view />
+              </transition>
+      </v-parallax>
+    </v-app>
+  
 </template>
 
+<!--template>
+  <v-app>
+    <Navbar />
+
+    <v-main class="grey lighten-3">
+      <v-container>
+        <v-row justify="center">
+          <v-col cols>
+            <v-sheet min-height="70vh" rounded="lg" class="pa-6">
+              <transition mode="out-in" name="fade">
+                <router-view />
+              </transition>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
+</template-->
+
 <script>
-import Firebase from "firebase";
 export default {
+  components: {
+    Navbar: () => import("./components/App/Navbar"),
+  },
   name: "App",
-
-  data: () => ({
-    cursos: []
-  }),
-
+  data: () => ({}),
   mounted() {
-    Firebase.firestore().collection("cursos").get().then(documents => {
-      documents.forEach(document => {
-        this.cursos.push({id: document.id, ...document.data()})
-      })
-    })
-  }
+    this.$store.dispatch("session/subscribeToAuthStateChange");
+  },
 };
 </script>

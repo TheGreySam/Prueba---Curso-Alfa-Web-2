@@ -1,9 +1,10 @@
 <template>
-  <v-app-bar app color="white" flat>
-    <v-container class="fill-height py-0">
-      <v-avatar size="48" class="mr-10">
+  <v-app-bar dark app color="purple" flat>
+    <v-container class="fill-height py-0" >
+      <v-avatar size="48" class="mr-10" color="white">
         <v-img
-          src="https://logodownload.org/wp-content/uploads/2020/04/google-classroom-logo-2.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/At_sign.svg/1024px-At_sign.svg.png"
+          
         ></v-img
       ></v-avatar>
 
@@ -38,8 +39,8 @@
 <script>
 export default {
   components: {
-    SignInDialog: () => import("../Sign/SignInDialog.vue"),
-    SignOutDialog: () => import("../Sign/SignOutDialog.vue"),
+    SignInDialog: () => import("../SignIn/SignInDialog.vue"),
+    SignOutDialog: () => import("../SignIn/SignOutDialog.vue"),
   },
   data: () => ({
     links: [

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h1>Lista de Cursos</h1>
+    <div class="pa-2 d-flex justify-center">
+      <h1>Lista de Cursos</h1>
+    </div>
+    
     <v-row>
       <v-col
         v-for="grade in $store.state.grades.data"

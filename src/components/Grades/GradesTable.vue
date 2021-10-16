@@ -1,5 +1,10 @@
 <template>
-  <v-data-table :items="$store.state.grades.data" :headers="headers">
+  <v-container>
+    <v-data-table 
+  :items="$store.state.grades.data" 
+  :headers="headers"
+  class="pa-md-4 mx-auto"
+  >
     <template v-slot:[`item.costo`]="{ item }">
       <v-chip color="success">${{ item.costo.toLocaleString() }}</v-chip>
     </template>
@@ -27,6 +32,7 @@
       </div>
     </template>
   </v-data-table>
+  </v-container>
 </template>
 
 <script>
