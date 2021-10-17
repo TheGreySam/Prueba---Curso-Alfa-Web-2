@@ -32,6 +32,8 @@
       </div>
     </template>
   </v-data-table>
+  <br>
+  
   </v-container>
 </template>
 
@@ -57,12 +59,12 @@ export default {
     },
     mostrarAlertaDeBorrar(item) {
       this.$swal({
-        title: "¿Estas seguro?",
-        icon: "warning",
+        title: "¿Esta usted seguro?",
+        //icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Borrar",
+        confirmButtonColor: "#3FBF3F",
+        cancelButtonColor: "#FFFFF",
+        confirmButtonText: "Eliminar",
         cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {

@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" width="400">
+  <v-dialog v-model="dialog" width="800" height="500">
     <template #activator="{ on }">
       <v-btn text depressed v-on="on">
         Iniciar sesión
@@ -9,6 +9,8 @@
     <v-card>
       <v-card-text style="position: relative" class="pt-10">
         <v-form ref="userForm" @submit.prevent="handleFormSubmit">
+          <h1>Login de Usuario</h1>
+          <br>
           <v-text-field
             outlined
             label="Correo electronico"
@@ -27,20 +29,22 @@
             name="password"
             :disabled="loading"
           ></v-text-field>
-          <v-btn
-            style="transition: background-color 0.2s linear"
-            :color="color"
-            type="submit"
-            fab
-            absolute
-            bottom
-            right
-            :loading="loading"
-          >
-            <v-icon :class="{ shake: color === 'error' }">
+          
+          <v-row>
+              <v-col>
+                <v-btn style="transition: background-color 0.2s linear" type="submit" color="success" :loading="loading">Ingresar
+                  <v-icon :class="{ shake: color === 'error' }">
               {{ color === "success" ? "mdi-login-variant" : "mdi-close" }}
             </v-icon>
-          </v-btn>
+                </v-btn>
+              </v-col>
+              <v-col>
+                <v-btn color="red" dark to="/cursos">Registrar</v-btn>
+              </v-col>
+              <v-col>
+                <v-btn color="primary-outline" to="/cursos">Atras</v-btn>
+              </v-col>
+            </v-row>
         </v-form>
       </v-card-text>
     </v-card>

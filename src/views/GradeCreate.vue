@@ -13,11 +13,12 @@
         <v-card-text>
           <v-form @submit.prevent="guardarCambios" ref="formulario">
             <v-text-field :disabled="loading" v-model="grade.nombre" label="Nombre" :rules="required"></v-text-field>
-            <v-text-field :disabled="loading" v-model.number="grade.cupos" :rules="required"></v-text-field>
-            <v-text-field :disabled="loading" v-model.number="grade.inscritos" :rules="required"></v-text-field>
-            <v-text-field :disabled="loading" v-model="grade.duracion" :rules="required"></v-text-field>
-            <v-text-field :disabled="loading" v-model.number="grade.costo" type="number" :rules="required"></v-text-field>
+            <v-text-field :disabled="loading" v-model.number="grade.cupos" :rules="required" label="Cupos"> </v-text-field>
+            <v-text-field :disabled="loading" v-model.number="grade.inscritos" :rules="required" label="Inscritos"></v-text-field>
+            <v-text-field :disabled="loading" v-model="grade.duracion" :rules="required" label="Duracion"></v-text-field>
+            <v-text-field :disabled="loading" v-model.number="grade.costo" type="number" :rules="required" label="Costo"></v-text-field>
             <v-text-field :disabled="loading" v-model="grade.estado" label="Estado" :rules="required"></v-text-field>
+            <v-text-field :disabled="loading" v-model="grade.imagen" label="Url Imagen"></v-text-field>
             <v-switch v-model="grade.estado" label="Estado" :rules="required"></v-switch>
             
             <v-row>

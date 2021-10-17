@@ -6,6 +6,7 @@ import vuetify from "./plugins/vuetify";
 
 import "./plugins/firebase";
 import "./plugins/vue-gravatar";
+import "./plugins/sweetalert2";
 
 
 Vue.config.productionTip = false;

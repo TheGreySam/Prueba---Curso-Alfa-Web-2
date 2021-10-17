@@ -4,6 +4,7 @@
       <h1>Lista de Cursos</h1>
     </div>
     
+    
     <v-row>
       <v-col
         v-for="grade in $store.state.grades.data"
@@ -24,6 +25,7 @@ export default {
   components: {
     GradeOverviewCard: () =>
       import("../components/Grades/GradeOverviewCard.vue"),
+      
   },
   beforeRouteEnter(to, from, next) {
     Store.dispatch("grades/getAllGrades");

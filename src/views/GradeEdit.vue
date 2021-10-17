@@ -1,16 +1,20 @@
 <template>
     <div>
-      <v-container justify-center class="d-flex">
+      <v-container justify-center class="">
         <v-card
       loading
       shaped
       elevation="2"
-      max-width="600pt" 
+      
       >
       <br>
-        <v-card-title class="p-2">
-          <h1>Editar curso: {{$route.params.id}}</h1>
+        <v-card-title class="pb-8">
+          <h1>Editar curso: </h1>
         </v-card-title>
+        
+        <v-card-subtitle>
+          <h2>ID: {{$route.params.id}}</h2>
+        </v-card-subtitle>
         <br>
         <v-card-text>
           <v-form @submit.prevent="guardarCambios" ref="formulario">

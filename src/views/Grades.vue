@@ -12,6 +12,8 @@
       
     </div>
     <GradesTable />
+    <GradesInfo />
+    <br>
 
 </div>
     
@@ -20,9 +22,10 @@
 <script>
 import Store from "../store";
 import GradesTable from "../components/Grades/GradesTable.vue";
+import GradesInfo from "../components/Grades/GradesInfo.vue";
 
 export default {
-  components: { GradesTable },
+  components: { GradesTable, GradesInfo },
   beforeRouteEnter(to, from, next) {
     Store.dispatch("grades/getAllGrades");
     next();
