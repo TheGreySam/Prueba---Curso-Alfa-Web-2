@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="pa-2 d-flex justify-center">
+    <div class="pa-2 d-flex justify-center black--text">
       <h1>Lista de Cursos</h1>
     </div>
     
@@ -9,7 +9,7 @@
         v-for="grade in $store.state.grades.data"
         :key="grade.id"
         cols="12"
-        md="6"
+        md="4"
       >
         <GradeOverviewCard :value="grade" />
       </v-col>

@@ -1,14 +1,16 @@
 <template>
 <div>
-    <v-layout>
-        <v-flex>
-            <h1>Cursos</h1>
-        </v-flex>
-        <v-flex>
-            <v-btn to="/cursos/crear">Crear Curso</v-btn>
-        </v-flex>
-    </v-layout>
-
+  <div class="pa-2 d-flex justify-center black--text">
+    <h1>Administracion</h1>
+      
+      
+    
+      
+    </div>
+    <div class="pa-2 d-flex justify-center">      
+        <v-btn to="/cursos/crear" color="purple" dark>Agregar Curso</v-btn>
+      
+    </div>
     <GradesTable />
 
 </div>

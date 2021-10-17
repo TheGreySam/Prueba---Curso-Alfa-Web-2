@@ -3,6 +3,7 @@
     <v-card
     class="mx-auto pa-md-4"
     max-width="344"
+    shaped
   >
     <v-img
       :src="value.imagen"

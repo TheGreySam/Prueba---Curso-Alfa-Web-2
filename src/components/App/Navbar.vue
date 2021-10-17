@@ -1,5 +1,18 @@
 <template>
-  <v-app-bar dark app color="purple" flat>
+  <v-app-bar 
+  
+  color="#fcb69f"
+  dark
+  
+  src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Abstract-background-white-12.jpg/2560px-Abstract-background-white-12.jpg"
+  >
+  <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(85,1,71,.5), rgba(247,91,249,.8)"
+        ></v-img>
+      </template>
+    
     <v-container class="fill-height py-0" >
       <v-avatar size="48" class="mr-10" color="white">
         <v-img
@@ -45,7 +58,12 @@ export default {
   data: () => ({
     links: [
       {
-        text: "Inicio",
+        text: "Portada",
+        icon: "mdi-alpha-a-circle",
+        to: "/"
+      },
+      {
+        text: "Home",
         icon: "mdi-home",
         to: "/home",
       },
